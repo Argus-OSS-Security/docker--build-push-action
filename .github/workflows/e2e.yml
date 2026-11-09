@@ -7,16 +7,17 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 10 * * *'
-  push:
-    branches:
-      - 'master'
-    tags:
-      - 'v*'
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#   schedule:
+#     - cron: '0 10 * * *'
+#   push:
+#     branches:
+#       - 'master'
+#     tags:
+#       - 'v*'
+# 
 jobs:
   build:
     uses: ./.github/workflows/.e2e-run.yml
